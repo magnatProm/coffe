@@ -1,10 +1,255 @@
-.wrapper{
-    width: 100%;
-    margin: 0px 0px 0px 10%;
-    background: darkblue;
+:root {
+    --banner_background: rgb(238 172 85);
+    --like_background: #efae54;
+    --btn_background: rgb(130 207 191);
+    --background_bright: #e5594c;
+    --background_line: #f66d52;
+    --slider_background: #442624;
+    --background_black: #000000;
+    --btn_hover: #e8f8ff47;
+    --btn_color: #fff3f2;
+    --main_color: aliceblue;
+    --title_color: rgb(255 236 219);
+    --color: #ba9784;
+    --border:solid rgb(111 81 81);
 }
 
-.wrapper:nth-child(3n){
-    margin: 0px 10% 0px 0px;
+.wrapper{
+    margin: 0px 6% 0px 0px;
+    background: darkblue;
+
+    &:nth-child(3n+1){
+        margin: 0px 0px 0px 10%;
     background: rgb(0, 139, 12);
+    }
+}
+
+body{
+    color: var(--main_color);
+    font-family: 'Roboto', sans-serif;
+    background: url(../img/coffe_room.png) rgba(0, 0, 0, 0.6);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    overflow-x: hidden;
+}
+
+.columns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:nth-child(3n),&:nth-child(4n){
+        flex-direction: row-reverse;
+    }
+}
+
+.banner{
+    background: var(--banner_background);
+
+    .wrapper:nth-child(3n) &{
+        border-top-right-radius: 115px;
+        border-bottom-right-radius: 115px;
+    }
+}
+
+.main-btn{
+    background: var(--btn_background);
+    padding: 7px 40px;
+    text-transform: uppercase;
+}
+
+.preview{
+    color: inherit;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 15px 35px;
+    border: 2px var(--border);
+
+    &__arrow{
+        font-size: 20px;
+        color: rgb(229 197 176);
+        margin-left: 25px;
+        display: inline-block;
+        transition: all .2s ease-in-out;
+    }
+    &:hover &__arrow {
+        transform: translateX(10px);
+    }
+}
+
+.btn_like {
+    background: var(--like_background);
+    align-items: center;
+}
+
+.btn-circle {
+    border-radius: 50%;
+    padding: 11px 18px;
+    color: var(--btn_color);
+}
+
+.nav{
+    &__menu{
+        height: 24px;
+        width: 16px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    &-menu__line{
+        height: 5px;
+        width: 20px;
+        background:var(--btn_color);
+        position: relative;
+    }
+    &-menu__line::after, &-menu__line::before {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 10px;
+        background:var(--btn_color);
+        transition: all .5s ease-in-out;
+        position: absolute;
+    }
+    &-menu__line::before {
+        top: -5px;
+        right: 0;
+    }
+    &-menu__line::after {
+        top: 7px;
+    }
+}
+
+.list{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    &__item{
+        position: relative;
+    }
+}
+
+.dropdown {
+    display: none;
+    border: 2px var(--border);
+    position: absolute;
+    background: var(--background_black);
+    width: max-content;
+
+    &__item {
+        padding: 7px 20px;
+    }
+}
+
+.content{
+    &__inner{
+        max-width: 380px;
+    }
+    &__inner > *:not(:first-child){
+        margin-top: 35px;
+    }
+    &__title{
+        color: var(--title_color);
+        font-size: 198px;
+        line-height: 155px;
+        font-family: 'Alumni Sans Inline One', cursive;
+        font-weight: 100;
+        text-transform: uppercase;
+    }
+    &__row{
+        display: flex;
+    }
+    &__row *+*{
+        margin-left: 33px;
+    }
+    &__price{
+        font-weight: 300;
+        font-size: 28px;
+    }
+    &__text{
+        line-height: 30px;
+    }
+}
+
+.slider{
+    width: 740px;
+    height: 286px;
+    border-top-right-radius: 38px;
+    border-bottom-right-radius: 38px;
+    padding: 50px 90px;
+    background: var(--slider_background);
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .wrapper:nth-child(4n) &{
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-left-radius: 38px;
+        border-bottom-left-radius: 38px;
+    }
+    &__carousel{
+        height: 100%;
+        display: flex;
+        width: max-content;
+        transition: all .5s ease-in-out;
+    }
+    &__control{
+        font-size: 20px;
+    }
+}
+
+.discount{
+    border-radius: 12px;
+    background: var(--background_bright);
+    padding: 5% 15.4%;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.content{
+    &__inner{
+        margin-bottom: 35px;
+        font-style: inherit;
+    }
+    &__list{
+        line-height: 40px;
+        color: var(--color);
+    }
+    &__item{
+        display: flex;
+        gap: 16px;
+    }
+    &__link{
+        color: var(--main_color);
+    }
+    &__link:after {
+        background-color: var(--background_line);
+        display: block;
+        content: "";
+        height: 2px;
+        width: 0%;
+        transition: width .3s ease-in-out;
+    }
+    &__link:hover:after{
+        width: 100%;
+    }
+}
+
+.footer{
+    margin: 45px 0% 0px 0%;
+    border-top: 2px var(--border);
+    padding: 30px 0px;
+    gap: 15px;
+    justify-content: space-around;
+
+    @media (max-width:600px) {
+        &{
+            flex-direction: column-reverse;
+        }
+    }
 }
