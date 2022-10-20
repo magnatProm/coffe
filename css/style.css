@@ -1,0 +1,10 @@
+.wrapper {
+  width: 100%;
+  margin: 0px 0px 0px 10%;
+  background: darkblue;
+}
+
+.wrapper:nth-child(3n) {
+  margin: 0px 10% 0px 0px;
+  background: rgb(0, 139, 12);
+}
