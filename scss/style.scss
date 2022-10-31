@@ -83,6 +83,12 @@ body {
 .btn_like {
     background: var(--like_background);
     align-items: center;
+    transition: 1s all;
+
+    &_active{
+        transform: scale(0.9) scaleX(-1);
+        background:var(--slider_background);
+    }
 }
 
 .btn-circle {
@@ -129,11 +135,19 @@ body {
     &-menu__line::after {
         top: 7px;
     }
+
+    &-menu_active~.dropdown {
+        display: block;
+    }
+
+    &-menu_active &-menu__line::before,
+    &-menu_active &-menu__line::after {
+        width: 100%;
+    }
 }
 
 .list {
     display: flex;
-    align-items: center;
     gap: 15px;
 
     &__item {
@@ -147,6 +161,8 @@ body {
     position: absolute;
     background: var(--background_black);
     width: max-content;
+    z-index: 1;
+    max-width: 160px;
 
     &__item {
         padding: 7px 20px;
@@ -233,8 +249,6 @@ body {
     background: var(--slider_background);
     overflow: hidden;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 
     .wrapper:nth-child(4n) & {
         border-top-right-radius: 0px;
@@ -243,15 +257,70 @@ body {
         border-bottom-left-radius: 38px;
     }
 
+    &__window{
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        height: 100%;
+    }
+
     &__carousel {
         height: 100%;
         display: flex;
-        width: max-content;
+        width: auto;
         transition: all .5s ease-in-out;
+        position: absolute;
     }
 
     &__control {
         font-size: 20px;
+        margin: auto;
+        display: inline-flex;
+    }
+
+    @media (max-width:919px) {
+        &{
+            padding: 50px 18px;
+        }
+    }
+}
+
+.card {
+    transition: background 0.5s, border-radius 1s;
+    position: relative;
+
+    &__info {
+        bottom: -175px;
+        position: absolute;
+        opacity: 0;
+        background: #ffecdb;
+        color: #6f5151;
+        width: inherit;
+        padding: 0px 10px;
+        transition: bottom 1s;
+        transition-delay: 0.20s;
+    }
+
+    &:hover {
+        position: relative;
+        background: #eeac55;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    &:hover &__info {
+        bottom: 0px;
+        opacity: 1;
+    }
+
+    &__img {
+        margin: auto;
+        // height: 100%;
+        transition: all .5s cubic-bezier(0.4, 0, 1, 1);
+    }
+
+    &:hover &__img {
+        transform: scale(0.9, 0.8);
     }
 }
 
@@ -273,6 +342,15 @@ body {
         bottom: -91px;
         height: 186px;
         object-fit: cover;
+    }
+
+    &__btn {
+        width: min-content;
+        background: var(--background_bright);
+        padding: 9%;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     & *:not(img) {
@@ -345,6 +423,7 @@ body {
         flex-wrap: wrap;
         flex-direction: column-reverse;
 
+        &>*[class*="banner"],
         &:not(:nth-child(1), .footer)>*[class*="content"] {
             margin: 0px auto 0px 0px;
         }
