@@ -14,51 +14,52 @@
     <link rel="stylesheet" href="css/style.css">
     <script defer src="object.js"></script>
     <script defer src="js.js"></script>
-</head>
 
-<style>
-    .loading {
-      position: fixed;
-      top: 0px;
-      z-index: 7;
-      width: 100%;
-      height: 100vh;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      background: #442624;
-    }
+    <style>
+        .loading {
+          position: fixed;
+          top: 0px;
+          z-index: 7;
+          width: 100%;
+          height: 100vh;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          background: #442624;
+        }
+        
+        .inner {
+          margin: auto auto;
+          position: relative;
+        }
+        
+        .loading__img {
+          offset-rotate: 0deg;
+          offset-path: path("M242 102C290.994 41.1108 322.874 23.0741 385.5 12C446.102 14.4541 469.367 30.4882 479.5 102C470.329 168.951 448.977 187.626 385.5 197C309.43 169.829 278.323 151.81 250.5 113C184.438 47.4759 148.772 18.2678 93.5 12C37.6782 30.2716 17.1779 48.1132 12 102C23.4203 164.237 44.3663 178.851 93.5 188.5C149.186 186.995 181.912 165.065 242 102Z");
+          -webkit-animation: loading__img 2s linear 0s infinite normal;
+                  animation: loading__img 2s linear 0s infinite normal;
+          offset-distance: 0;
+          font-size: 150px;
+          position: absolute;
+          left: -190px;
+          right: -14px;
+          top: -129px;
+        }
+        
+        @-webkit-keyframes loading__img {
+          100% {
+            offset-distance: 100%;
+          }
+        }
+        
+        @keyframes loading__img {
+          100% {
+            offset-distance: 100%;
+          }
+        }
+    </style>
     
-    .inner {
-      margin: auto auto;
-      position: relative;
-    }
-    
-    .loading__img {
-      offset-rotate: 0deg;
-      offset-path: path("M242 102C290.994 41.1108 322.874 23.0741 385.5 12C446.102 14.4541 469.367 30.4882 479.5 102C470.329 168.951 448.977 187.626 385.5 197C309.43 169.829 278.323 151.81 250.5 113C184.438 47.4759 148.772 18.2678 93.5 12C37.6782 30.2716 17.1779 48.1132 12 102C23.4203 164.237 44.3663 178.851 93.5 188.5C149.186 186.995 181.912 165.065 242 102Z");
-      -webkit-animation: loading__img 2s linear 0s infinite normal;
-              animation: loading__img 2s linear 0s infinite normal;
-      offset-distance: 0;
-      font-size: 150px;
-      position: absolute;
-      left: -190px;
-      right: -14px;
-      top: -129px;
-    }
-    
-    @-webkit-keyframes loading__img {
-      100% {
-        offset-distance: 100%;
-      }
-    }
-    
-    @keyframes loading__img {
-      100% {
-        offset-distance: 100%;
-      }
-    }
-</style>
+</head>
 
 <body>
 
