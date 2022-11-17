@@ -51,9 +51,18 @@ body {
 }
 
 .main-btn {
-  background: var(--btn_background);
-  padding: 7px 40px;
   text-transform: uppercase;
+  position: relative;
+  vertical-align: middle;
+}
+
+.svg {
+  -webkit-transition: 0.1s linear;
+  transition: 0.1s linear;
+}
+.svg:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }
 
 .preview {

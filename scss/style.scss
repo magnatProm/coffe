@@ -14,6 +14,7 @@
     --border: solid rgb(111 81 81);
 }
 
+
 .wrapper {
     margin: 0px 6% 0px 0px;
 
@@ -51,9 +52,17 @@ body {
 }
 
 .main-btn {
-    background: var(--btn_background);
-    padding: 7px 40px;
     text-transform: uppercase;
+    position: relative;
+    vertical-align: middle;
+}
+
+.svg {
+    transition: 0.1s linear;
+
+    &:active {
+        transform: scale(0.8);
+    }
 }
 
 .preview {

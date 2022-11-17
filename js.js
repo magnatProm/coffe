@@ -45,7 +45,7 @@ function scroll(text) {
   
     if (event.target.dataset.like == "") {
       event.target.setAttribute('data-like', "like");
-      event.target.closest('button').classList.add('btn_like_active');
+      event.target.closest('.btn_like').classList.add('btn_like_active');
       lengthCoffe.push(basketLikeContent.id);
   
       document.querySelector('.basket-like').insertAdjacentHTML("beforeend",
@@ -80,6 +80,39 @@ function scroll(text) {
   }, { capture: true });
   // ___________
 
+
+  // main button
+  window.addEventListener('click', function (event) {
+
+  const svg_number=event.target.closest('.svg').getAttribute('data-svg'),
+        svg__bread_top = document.querySelector(`.svg[data-svg="${svg_number}"] .svg__bread-top`),
+        svg__bread_bottom = document.querySelector(`.svg[data-svg="${svg_number}"] .svg__bread-bottom`),
+        svg__pouring = document.querySelector(`.svg[data-svg="${svg_number}"] .svg__pouring`);
+
+
+
+  if (svg__bread_top.hasAttribute('style')){
+        svg__bread_top.removeAttribute('style');
+        svg__bread_bottom.removeAttribute('style');
+        svg__pouring.removeAttribute('style');
+        return
+  }
+
+    if(event.target.closest('.svg') && !svg__bread_top.hasAttribute('style')){
+
+      function random(number) {
+        return Math.floor(Math.random() * (number+1));
+      }
+
+const fill_svg=`rgb(${random(255)} ${random(255)} ${random(255)})`;
+      
+      svg__bread_top.style.fill=fill_svg;
+      svg__bread_bottom.style.fill=fill_svg;
+      svg__pouring.style.fill=`rgb(${random(255)} ${random(255)} ${random(255)})`
+    } 
+
+  })
+  // main button
 
  
 // slider bar
