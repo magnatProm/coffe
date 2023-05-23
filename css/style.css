@@ -240,6 +240,21 @@ body {
 .list__item {
   position: relative;
 }
+.list__text {
+  max-height: 47px;
+  overflow: hidden;
+}
+
+.label {
+  background: var(--background_bright);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0px 8px;
+  border-radius: 14px;
+  z-index: 2;
+  font-size: 14px;
+}
 
 .dropdown {
   display: none;
@@ -251,9 +266,16 @@ body {
   width: max-content;
   z-index: 1;
   max-width: 160px;
+  max-height: 600px;
+  overflow: auto;
+  min-width: 55px;
+  min-height: 27px;
 }
 .dropdown__item {
   padding: 7px 20px;
+}
+.dropdown::-webkit-scrollbar {
+  width: 0px;
 }
 
 .banner {
@@ -405,6 +427,10 @@ body {
 .card:hover .card__img {
   -webkit-transform: scale(0.9, 0.8);
           transform: scale(0.9, 0.8);
+}
+
+.product {
+  position: relative;
 }
 
 .discount {
